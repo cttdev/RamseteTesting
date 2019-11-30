@@ -42,7 +42,7 @@ public final class Constants {
         // Assumes the encoders are directly mounted on the wheel shafts
         (kWheelDiameterMeters * Math.PI) / (double) kEncoderCPR;
 
-    public static final boolean kGyroReversed = true;
+    public static final boolean kGyroReversed = false;
 
     // These are example values only - DO NOT USE THESE FOR YOUR OWN ROBOT!
     // These characterization values MUST be determined either experimentally or theoretically
@@ -54,7 +54,7 @@ public final class Constants {
     public static final double kaVoltSecondsSquaredPerMeter = 0.586;
 
     // Example value only - as above, this must be tuned for your drive!
-    public static final double kPDriveVel = 1;//1.52
+    public static final double kPDriveVel = 1.6;//1.52
   }
 
   public static final class OIConstants {
@@ -62,8 +62,8 @@ public final class Constants {
   }
   
   public static final class AutoConstants {
-    public static final double kMaxSpeedMetersPerSecond = 1;
-    public static final double kMaxAccelerationMetersPerSecondSquared = 0.1;
+    public static final double kMaxSpeedMetersPerSecond = 14;//10
+    public static final double kMaxAccelerationMetersPerSecondSquared = 2;//1.5
 
     public static final DifferentialDriveKinematicsConstraint kAutoPathConstraints =
         new DifferentialDriveKinematicsConstraint(DriveConstants.kDriveKinematics,
