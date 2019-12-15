@@ -54,7 +54,7 @@ public final class Constants {
     public static final double kaVoltSecondsSquaredPerMeter = 0.586;
 
     // Example value only - as above, this must be tuned for your drive!
-    public static final double kPDriveVel = 1.55;//1.52
+    public static final double kPDriveVel = 1.4;//1.52
   }
 
   public static final class OIConstants {
@@ -62,7 +62,7 @@ public final class Constants {
   }
   
   public static final class AutoConstants {
-    public static final double kMaxSpeedMetersPerSecond = 14;//10
+    public static final double kMaxSpeedMetersPerSecond = 12;//10
     public static final double kMaxAccelerationMetersPerSecondSquared = 2;//1.5
 
     public static final DifferentialDriveKinematicsConstraint kAutoPathConstraints =

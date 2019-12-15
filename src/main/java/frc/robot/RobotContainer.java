@@ -118,7 +118,7 @@ public class RobotContainer {
         List.of(
             new Pose2d(0, 0, new Rotation2d(0)),
             new Pose2d(1.5, 1, new Rotation2d(0)),
-            new Pose2d(3, 0, new Rotation2d(Math.PI/2))
+            new Pose2d(3, 0, new Rotation2d(-Math.PI/2))
         ),
         // End 3 meters straight ahead of where we started, facing forward
         // Pass config
