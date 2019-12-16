@@ -62,7 +62,7 @@ public final class Constants {
   }
   
   public static final class AutoConstants {
-    public static final double kMaxSpeedMetersPerSecond = 12;//10
+    public static final double kMaxSpeedMetersPerSecond = 5;//10
     public static final double kMaxAccelerationMetersPerSecondSquared = 2;//1.5
 
     public static final DifferentialDriveKinematicsConstraint kAutoPathConstraints =

@@ -112,8 +112,8 @@ public class DriveSubsystem extends SubsystemBase {
    * @param rightVolts the commanded right output
    */
   public void tankDriveVolts(double leftVolts, double rightVolts) {
-    m_leftMotors.setVoltage(leftVolts);
-    m_rightMotors.setVoltage(-rightVolts);
+    //m_leftMotors.setVoltage(leftVolts);
+    //m_rightMotors.setVoltage(-rightVolts);
   }
 
   /**
@@ -173,7 +173,7 @@ public class DriveSubsystem extends SubsystemBase {
    * @return the robot's heading in degrees, from 180 to 180
    */
   public double getHeading() {
-    return Math.IEEEremainder(m_gyro.getAngle(), 360) * (kGyroReversed ? -1.0 : 1.0);
+    return Math.IEEEremainder(-m_gyro.getAngle(), 360) * (kGyroReversed ? -1.0 : 1.0);
   }
 
   /**
