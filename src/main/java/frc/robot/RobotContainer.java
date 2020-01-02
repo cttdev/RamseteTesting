@@ -67,8 +67,8 @@ public class RobotContainer {
         // A split-stick arcade command, with forward/backward controlled by the left
         // hand, and turning controlled by the right.
         new RunCommand(() -> m_robotDrive
-            .arcadeDrive(m_driverController.getY(GenericHID.Hand.kLeft),
-                         m_driverController.getX(GenericHID.Hand.kRight)), m_robotDrive));
+            .tankDrive(m_driverController.getY(GenericHID.Hand.kLeft),
+                         m_driverController.getY(GenericHID.Hand.kRight)), m_robotDrive));
 
   }
 
@@ -110,7 +110,7 @@ public class RobotContainer {
             .setKinematics(kDriveKinematics)
             // Apply the voltage constraint
             .addConstraint(autoVoltageConstraint)
-            .addConstraint(new CentripetalAccelerationConstraint(2));
+            .addConstraint(new CentripetalAccelerationConstraint(1));
 
     // An example trajectory to follow.  All units in meters.
     Trajectory exampleTrajectory = TrajectoryGenerator.generateTrajectory(

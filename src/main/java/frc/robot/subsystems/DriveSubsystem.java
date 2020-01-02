@@ -34,7 +34,7 @@ public class DriveSubsystem extends SubsystemBase {
       new WPI_VictorSPX(kRightMotor2Port), new WPI_VictorSPX(kRightMotor3Port));
 
   // The robot's drive
-  private final DifferentialDrive m_drive = new DifferentialDrive(m_leftMotors, m_rightMotors);
+  //private final DifferentialDrive m_drive = new DifferentialDrive(m_leftMotors, m_rightMotors);
 
   // The left-side drive encoder
   private final Encoder m_leftEncoder =
@@ -48,16 +48,16 @@ public class DriveSubsystem extends SubsystemBase {
   private final Gyro m_gyro = new AnalogGyro(0);
 
   // Odometry class for tracking robot pose
-  DifferentialDriveOdometry m_odometry = new DifferentialDriveOdometry(kDriveKinematics,
-      Rotation2d.fromDegrees(getHeading()));
+  DifferentialDriveOdometry m_odometry = new DifferentialDriveOdometry(Rotation2d.fromDegrees(getHeading()),
+    new Pose2d(0, 0, new Rotation2d(0)));
 
   /**
    * Creates a new DriveSubsystem.
    */
   public DriveSubsystem() {
     // Sets the distance per pulse for the encoders
-    m_leftMotors.setInverted(true);
-    m_rightMotors.setInverted(true);
+    m_leftMotors.setInverted(false);
+    m_rightMotors.setInverted(false);
     m_leftEncoder.setDistancePerPulse(kEncoderDistancePerPulse);
     m_rightEncoder.setDistancePerPulse(kEncoderDistancePerPulse);
   }
@@ -101,8 +101,9 @@ public class DriveSubsystem extends SubsystemBase {
    * @param fwd the commanded forward movement
    * @param rot the commanded rotation
    */
-  public void arcadeDrive(double fwd, double rot) {
-    m_drive.arcadeDrive(fwd, rot);
+  public void tankDrive(double fwd, double rot) {
+    m_leftMotors.set(-rot);
+    m_rightMotors.set(fwd);
   }
 
   /**
@@ -112,8 +113,8 @@ public class DriveSubsystem extends SubsystemBase {
    * @param rightVolts the commanded right output
    */
   public void tankDriveVolts(double leftVolts, double rightVolts) {
-    //m_leftMotors.setVoltage(leftVolts);
-    //m_rightMotors.setVoltage(-rightVolts);
+    m_leftMotors.setVoltage(-rightVolts);
+    m_rightMotors.setVoltage(leftVolts);
   }
 
   /**
@@ -157,7 +158,7 @@ public class DriveSubsystem extends SubsystemBase {
    * @param maxOutput the maximum output to which the drive will be constrained
    */
   public void setMaxOutput(double maxOutput) {
-    m_drive.setMaxOutput(maxOutput);
+    //m_drive.setMaxOutput(maxOutput);
   }
 
   /**
